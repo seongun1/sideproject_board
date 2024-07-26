@@ -25,12 +25,27 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'com.h2database:h2'
+	// mysql 설정.
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	//lombok 설정
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+
+	//JUnit4 추가
+	testImplementation("org.junit.vintage:junit-vintage-engine") {
+		exclude group: "org.hamcrest", module: "hamcrest-core"
+	}
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()
