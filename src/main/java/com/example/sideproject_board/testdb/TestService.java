@@ -8,9 +8,9 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class TestService {
-    private UserRepository userRepository;
+    private TestUserRepository userRepository;
 
-    public List<User> getUserList() {
+    public List<TestUser> getUserList() {
         return userRepository.findAll();
     }
     public String getUser(Long userId){

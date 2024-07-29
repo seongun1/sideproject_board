@@ -17,7 +17,7 @@ public class TestController {
         return json;
     }
     @GetMapping(value = "/api/user")
-    public List<User> getUserList(){{
+    public List<TestUser> getUserList(){{
             return testService.getUserList();
         }
     }
