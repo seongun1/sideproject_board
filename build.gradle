@@ -28,6 +28,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	//시큐리티 설정
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// 새로고침 없이 바로 확인하고 싶을 때
@@ -35,6 +36,7 @@ dependencies {
 
 	// mysql 설정.
 	runtimeOnly 'com.mysql:mysql-connector-j'
+
 	//lombok 설정
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -42,7 +44,14 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+	//스프링 시큐리티를 위한 디펜던시 추가
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
 
+	//스프링 시큐리티 사용 jwt 로그인 구현
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
 
 	//JUnit4 추가
 	testImplementation("org.junit.vintage:junit-vintage-engine") {
