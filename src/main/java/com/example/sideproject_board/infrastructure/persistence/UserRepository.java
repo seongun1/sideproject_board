@@ -1,4 +1,4 @@
-package com.example.sideproject_board.persistence;
+package com.example.sideproject_board.infrastructure.persistence;
 
 import com.example.sideproject_board.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;

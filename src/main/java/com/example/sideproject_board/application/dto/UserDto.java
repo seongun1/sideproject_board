@@ -7,11 +7,11 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.io.Serializable;
-
-@Data
+//@NoArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@Data
+
 public class UserDto {
     @Getter @Setter // 이거 없으면 setpassword가 안됨.. 나중에 setter 없애는 방법을 생각해 봐야 함.
 

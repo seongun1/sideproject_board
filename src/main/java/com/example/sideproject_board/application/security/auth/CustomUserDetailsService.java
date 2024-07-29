@@ -2,7 +2,7 @@ package com.example.sideproject_board.application.security.auth;
 
 import com.example.sideproject_board.application.dto.UserDto;
 import com.example.sideproject_board.domain.User;
-import com.example.sideproject_board.persistence.UserRepository;
+import com.example.sideproject_board.infrastructure.persistence.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,10 +1,11 @@
-package com.example.sideproject_board.application.validator;
+package com.example.sideproject_board.application;
 
 import com.example.sideproject_board.application.dto.UserDto;
 import com.example.sideproject_board.domain.User;
-import com.example.sideproject_board.persistence.UserRepository;
+import com.example.sideproject_board.infrastructure.persistence.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
