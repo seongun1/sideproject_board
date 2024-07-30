@@ -1,6 +1,6 @@
-package com.example.sideproject_board.infrastructure.config;
+package com.example.sideproject_board.security.config;
 
-import com.example.sideproject_board.application.security.auth.LoginUserArgumentResolver;
+import com.example.sideproject_board.security.auth.LoginUserArgumentResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

@@ -1,8 +1,8 @@
-package com.example.sideproject_board.application.security.auth;
+package com.example.sideproject_board.security.auth;
 
-import com.example.sideproject_board.application.dto.UserDto;
+import com.example.sideproject_board.dto.UserDto;
 import com.example.sideproject_board.domain.User;
-import com.example.sideproject_board.infrastructure.persistence.UserRepository;
+import com.example.sideproject_board.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,5 +25,4 @@ public class CustomUserDetailsService implements UserDetailsService {
         // 시큐리티 세션에 유저 정보 저장.
         return new CustomUserDetails(user);
     }
-
 }

@@ -1,4 +1,4 @@
-package com.example.sideproject_board.application.security.auth;
+package com.example.sideproject_board.security.auth;
 
 import com.example.sideproject_board.domain.User;
 import lombok.AllArgsConstructor;

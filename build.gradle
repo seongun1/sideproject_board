@@ -29,8 +29,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-	//시큐리티 설정
-	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// 새로고침 없이 바로 확인하고 싶을 때
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
 

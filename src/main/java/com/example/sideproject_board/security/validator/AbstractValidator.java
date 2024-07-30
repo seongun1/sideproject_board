@@ -1,4 +1,4 @@
-package com.example.sideproject_board.application.validator;
+package com.example.sideproject_board.security.validator;
 
 
 import lombok.extern.slf4j.Slf4j;
