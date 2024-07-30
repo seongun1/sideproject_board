@@ -1,7 +1,7 @@
-package com.example.sideproject_board.application.validator;
+package com.example.sideproject_board.security.validator;
 
-import com.example.sideproject_board.application.dto.UserDto;
-import com.example.sideproject_board.infrastructure.persistence.UserRepository;
+import com.example.sideproject_board.dto.UserDto;
+import com.example.sideproject_board.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

@@ -1,4 +1,4 @@
-package com.example.sideproject_board.application.dto;
+package com.example.sideproject_board.dto;
 
 import com.example.sideproject_board.domain.Role;
 import com.example.sideproject_board.domain.User;
@@ -7,14 +7,13 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.io.Serializable;
-//@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
 
 public class UserDto {
-    @Getter @Setter // 이거 없으면 setpassword가 안됨.. 나중에 setter 없애는 방법을 생각해 봐야 함.
-
+    //@Getter @Setter // 이거 없으면 setpassword가 안됨.. 나중에 setter 없애는 방법을 생각해 봐야 함.
+    @Data // @Data에는 Setter와 Getter가 포함되어 있습니다.
     public static class Request {
 
         private Long id;

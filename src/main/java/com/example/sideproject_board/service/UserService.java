@@ -1,8 +1,8 @@
-package com.example.sideproject_board.application;
+package com.example.sideproject_board.service;
 
-import com.example.sideproject_board.application.dto.UserDto;
+import com.example.sideproject_board.dto.UserDto;
 import com.example.sideproject_board.domain.User;
-import com.example.sideproject_board.infrastructure.persistence.UserRepository;
+import com.example.sideproject_board.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

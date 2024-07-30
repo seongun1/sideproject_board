@@ -2,9 +2,9 @@ package com.example.sideproject_board.infrastructure.persistence;
 
 import com.example.sideproject_board.domain.Role;
 import com.example.sideproject_board.domain.User;
+import com.example.sideproject_board.repository.UserRepository;
 import org.junit.After;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +29,7 @@ public class UserRepositoryTest {
 
     @Test
     public void 유저_생성_가져오기(){
-        String username ="test";
+        String username ="test1";
         String rawPassword = "123!@#qwe";
         String encPassword = encoder.encode(rawPassword);
         userRepository.save(User.builder()

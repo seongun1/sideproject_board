@@ -1,6 +1,6 @@
-package com.example.sideproject_board.application.security.auth;
+package com.example.sideproject_board.security.auth;
 
-import com.example.sideproject_board.application.dto.UserDto;
+import com.example.sideproject_board.dto.UserDto;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
@@ -9,8 +9,6 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
-
-import javax.net.ssl.HandshakeCompletedListener;
 
 @RequiredArgsConstructor
 @Component
