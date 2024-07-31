@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @AllArgsConstructor
-public class CustomUserDetails implements UserDetails {
+public class SecurityUserDetailsDto implements UserDetails {
     private final User user;
 
     @Override // 계정 만료 여부 : true ->만료 안됨. false : 만료
