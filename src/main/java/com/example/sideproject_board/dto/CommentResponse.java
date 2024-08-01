@@ -2,10 +2,13 @@ package com.example.sideproject_board.dto;
 
 import com.example.sideproject_board.domain.Comment;
 import lombok.Data;
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Data
+@Getter
 public class CommentResponse {
     private Long commentId;
     private Long memberId;

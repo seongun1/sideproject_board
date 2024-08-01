@@ -18,7 +18,7 @@ import java.util.Map;
 public class OAuthAttributes {
     private Map<String,Object> attributes;
     private String nameAttributekey;
-    private String username;
+    private String loginId;
     private String nickname;
     private String email;
     private Role role;
@@ -35,7 +35,7 @@ public class OAuthAttributes {
     public static OAuthAttributes ofGoogle(String userNameAttributeName,
                                      Map<String, Object> attributes){
        return OAuthAttributes.builder()
-               .username((String) attributes.get("enail"))
+               .loginId((String) attributes.get("loginId"))
                .email((String) attributes.get("email"))
                .nickname((String) attributes.get("name"))
                .attributes(attributes)
@@ -49,7 +49,7 @@ public class OAuthAttributes {
         log.info("naver response: " +response);
 
         return OAuthAttributes.builder()
-                .username((String) attributes.get("enail"))
+                .loginId((String) attributes.get("loginId"))
                 .email((String) attributes.get("email"))
                 .nickname((String) attributes.get("name"))
                 .attributes(attributes)
@@ -58,7 +58,7 @@ public class OAuthAttributes {
     }
     public User toEntity(){
         return User.builder()
-                .username(email)
+                .loginId(loginId)
                 .email(email)
                 .nickname(nickname)
                 .role(Role.SOCIAL)

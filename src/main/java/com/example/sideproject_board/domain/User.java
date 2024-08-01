@@ -4,22 +4,22 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
 public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Long id;
+    private Long id; // 유저 id
 
     @Column(nullable = false,length = 30,unique = true) // 30자리 이내, 중복없이 조건
-    private String username; // 아이디
+    private String loginId; // 유저 로그인 아이디
 
     @Column(nullable = false, unique = true)
-    private String nickname;
+    private String nickname; // 닉네임
 
     @Column(length = 100)
     private String password;
@@ -29,7 +29,7 @@ public class User extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private Role role; // 계정타입
 
     // 회원정보 수정
     public void modify(String nickname,String password){

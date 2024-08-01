@@ -42,7 +42,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
           // 한글 UTF-8 인코딩 처리
   errorMessage = URLEncoder.encode(errorMessage, "UTF-8");
 
-  setDefaultFailureUrl("/auth/login?error=true&exception="+errorMessage);
+  //setDefaultFailureUrl("login?error=true&exception="+errorMessage);
 
   super.onAuthenticationFailure(request, response, exception);
 
