@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -58,15 +59,17 @@ public class SecurityConfig  {
                 .formLogin(AbstractHttpConfigurer::disable);
         http
                 .httpBasic((AbstractHttpConfigurer::disable));
-
-
         http
-                .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/jwt-login", "/jwt-login/", "/jwt-login/login", "/jwt-login/join").permitAll()
-                        .requestMatchers("/jwt-login/admin").hasRole("ADMIN")
-                        .anyRequest().authenticated()
-                );
-
+                .cors(Customizer.withDefaults());
+        http
+                .authorizeHttpRequests(request -> request
+                        .anyRequest().permitAll());
+//        http
+////                .authorizeHttpRequests((auth) -> auth
+////                        .requestMatchers("/jwt-login", "/jwt-login/", "/jwt-login/login", "/jwt-login/join").permitAll()
+////                        .requestMatchers("/jwt-login/admin").hasRole("ADMIN")
+////                        .anyRequest().authenticated()
+////                );
         http
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));

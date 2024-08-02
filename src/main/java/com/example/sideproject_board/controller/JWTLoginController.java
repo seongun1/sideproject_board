@@ -92,7 +92,7 @@ public class JWTLoginController {
             return "ID 또는 비밀번호가 일치하지 않습니다!";
         }
 
-        String token = jwtUtil.createJwt(user.getLoginId(), user.getRoleValue(), 1000 * 60 * 60L);
+        String token = jwtUtil.createJwt(user.getLoginId(), user.getRoleValue());
         return token;
     }
 
