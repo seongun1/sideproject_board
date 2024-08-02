@@ -1,5 +1,6 @@
 package com.example.sideproject_board.security.validator;
 
+import com.example.sideproject_board.dto.LoginRequest;
 import com.example.sideproject_board.dto.UserDto;
 import com.example.sideproject_board.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -39,8 +40,8 @@ public class CustomValidators {
         private final UserRepository userRepository;
 
         @Override
-        protected void doValidate(UserDto.Request dto, Errors errors) {
-            if (userRepository.existsByUsername(dto.toEntity().getUsername())){
+        protected void doValidate(UserDto.Request request, Errors errors) {
+            if (userRepository.existsByLoginId(request.getLoginId())){
                 errors.rejectValue("username","아이디 중복 오류","이미 사용중인 아이디 입니다.");
             }
         }

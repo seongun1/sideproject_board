@@ -1,4 +1,4 @@
-package com.example.sideproject_board.security.auth;
+package com.example.sideproject_board.dto;
 
 import com.example.sideproject_board.domain.User;
 import lombok.AllArgsConstructor;
@@ -9,43 +9,48 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @AllArgsConstructor
-public class CustomUserDetails implements UserDetails {
+public class CustomSecurityUserDetails implements UserDetails {
     private final User user;
 
-    @Override // 계정 만료 여부 : true ->만료 안됨. false : 만료
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Collection<GrantedAuthority> collection = new ArrayList<>();
+        collection.add(new GrantedAuthority() {
+            @Override
+            public String getAuthority() {
+                return "ROLE_" + user.getRole().name();
+            }
+        });
+        return collection;
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
-    @Override // 계정 잠김 여부 : ture -> 만료 안됨
+    @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
-    @Override //비밀번호 만료 여부 true -> 만료 안됨
+    @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
-    @Override // 사용자 활성화 여부 -> 만료 안됨
+    @Override
     public boolean isEnabled() {
         return true;
-    }
-    // 유저의 권한 목록
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> collectors = new ArrayList<>();
-        collectors.add(() -> "ROLE : " + user.getRole());
-
-        return collectors;
     }
 
     @Override
     public String getPassword() {
         return user.getPassword();
     }
+
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return user.getLoginId();
     }
 }

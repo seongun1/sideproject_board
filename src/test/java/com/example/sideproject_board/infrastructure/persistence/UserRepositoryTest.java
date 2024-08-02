@@ -29,11 +29,11 @@ public class UserRepositoryTest {
 
     @Test
     public void 유저_생성_가져오기(){
-        String username ="test1";
+        String loginId ="test1";
         String rawPassword = "123!@#qwe";
         String encPassword = encoder.encode(rawPassword);
         userRepository.save(User.builder()
-                .username(username)
+                .loginId(loginId)
                 .password(encPassword)
                 .nickname("testuser")
                 .email("test@naver.com")
@@ -43,7 +43,7 @@ public class UserRepositoryTest {
 
         User user = userList.get(0);
 
-        assertThat(user.getUsername()).isEqualTo(username);
+        assertThat(user.getLoginId()).isEqualTo(loginId);
         assertThat(user.getPassword()).isEqualTo(encPassword);
 
     }
