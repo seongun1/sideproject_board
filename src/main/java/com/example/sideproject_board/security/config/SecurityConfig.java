@@ -23,10 +23,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 // 특정 페이지에 대한 접근을 할때 사용 , DB에 저장되는 비밀번호를 암호화시 시용
-@Slf4j
 @Configuration
 @RequiredArgsConstructor
-@EnableMethodSecurity
 @EnableWebSecurity
 public class SecurityConfig  {
 
@@ -49,6 +47,7 @@ public class SecurityConfig  {
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 
+
     @Bean //configure 함수 역할
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
        //  ================== 스프링 시큐리티 jwt 로그인 설정 ==================
@@ -64,12 +63,31 @@ public class SecurityConfig  {
         http
                 .authorizeHttpRequests(request -> request
                         .anyRequest().permitAll());
+        //OAuth2.0 로그인 방식 설정
 //        http
-////                .authorizeHttpRequests((auth) -> auth
-////                        .requestMatchers("/jwt-login", "/jwt-login/", "/jwt-login/login", "/jwt-login/join").permitAll()
-////                        .requestMatchers("/jwt-login/admin").hasRole("ADMIN")
-////                        .anyRequest().authenticated()
-////                );
+//                .oauth2Login((auth) -> auth.loginPage("/oauth2-login/login")
+//                                .defaultSuccessUrl("/oauth2-login")
+//                                        .failureUrl("/oauth2-login/login")
+//                                                .permitAll());
+        // 폼 로그인 방식 설정.
+//        http
+//                .formLogin((auth) -> auth.loginPage("/oauth2-login/login")
+//                        .loginProcessingUrl("/oauth2-login/loginProc")
+//                        .usernameParameter("loginId")
+//                        .passwordParameter("password")
+//                        .defaultSuccessUrl("/oauth-login")
+//                        .failureUrl("/oauth2-login/")
+//                        .permitAll());
+//        http
+////                .logout((auth) -> auth
+////                        .logoutUrl("/oauth2-login/logout"));
+
+//        http
+//                .authorizeHttpRequests((auth) -> auth
+//                        .requestMatchers("/jwt-login", "/jwt-login/", "/jwt-login/login", "/jwt-login/join").permitAll()
+//                        .requestMatchers("/jwt-login/admin").hasRole("ADMIN")
+//                        .anyRequest().authenticated()
+//                );
         http
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));

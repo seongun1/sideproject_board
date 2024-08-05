@@ -21,11 +21,13 @@ public class JoinRequest {
     @NotBlank(message = "이름을 입력하세요")
     private String nickname;
 
+    private String email;
     public User toEntity(){
         return User.builder()
                 .loginId(this.loginId)
                 .password(this.password)
                 .nickname(this.nickname)
+                .email(this.email)
                 .role(Role.USER)
                 .build();
     }

@@ -44,16 +44,16 @@ public class UserService {
 
         userRepository.save(joinRequest.toEntity());
     }
-    public void save (User user){
-        em.persist(user);
-    }
-    public User findOne(String username){
-        return em.find(User.class,username);
-    }
-    public List<User> findAll(){
-        return em.createQuery("select m from User m" , User.class)
-                .getResultList();
-    }
+//    public void save (User user){
+//        em.persist(user);
+//    }
+//    public User findOne(String username){
+//        return em.find(User.class,username);
+//    }
+//    public List<User> findAll(){
+//        return em.createQuery("select m from User m" , User.class)
+//                .getResultList();
+//    }
     // 중복확인
     public boolean checkIsDuplicate (String loginId){
         return userRepository.existsByLoginId(loginId);

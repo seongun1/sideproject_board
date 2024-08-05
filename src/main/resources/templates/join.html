@@ -29,11 +29,16 @@
         </div>
         <br/>
         <div>
-            <label th:for="name">이름 : </label>
-            <input type="text" th:field="*{name}" th:errorclass="error-input"/>
-            <div class="error-class" th:errors="*{name}"></div>
+            <label th:for="name">닉네임 : </label>
+            <input type="text" th:field="*{nickname}" th:errorclass="error-input"/>
+            <div class="error-class" th:errors="*{nickname}"></div>
         </div>
         <br/>
+        <div>
+            <label th:for="email">이메일 : </label>
+            <input type="text" th:field="*{email}" th:errorclass="error-input"/>
+            <div class="error-class" th:errors="*{email}"></div>
+        </div>
         <button type="submit">회원 가입</button>
     </form>
 </div>

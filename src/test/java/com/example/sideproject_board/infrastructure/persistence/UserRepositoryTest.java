@@ -2,7 +2,9 @@ package com.example.sideproject_board.infrastructure.persistence;
 
 import com.example.sideproject_board.domain.Role;
 import com.example.sideproject_board.domain.User;
+import com.example.sideproject_board.dto.JoinRequest;
 import com.example.sideproject_board.repository.UserRepository;
+import com.example.sideproject_board.service.UserService;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,14 +24,18 @@ import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class UserRepositoryTest {
     @Autowired private UserRepository userRepository;
     @Autowired private BCryptPasswordEncoder encoder;
+    @Autowired
+    UserService userService;
     @After
     public void clear() {userRepository.deleteAll();}
 
     @Test
     public void 유저_생성_가져오기(){
+        clear();
         String loginId ="test1";
         String rawPassword = "123!@#qwe";
         String encPassword = encoder.encode(rawPassword);

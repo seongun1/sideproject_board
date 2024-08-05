@@ -24,8 +24,12 @@ public class User extends BaseTimeEntity {
     @Column(length = 100)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String email;
+
+    //provider : google이 들어가는 자리
+    private String provider;
+    private String providerId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

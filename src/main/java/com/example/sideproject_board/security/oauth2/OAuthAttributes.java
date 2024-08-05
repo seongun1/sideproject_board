@@ -1,4 +1,4 @@
-package com.example.sideproject_board.security.oauth;
+package com.example.sideproject_board.security.oauth2;
 
 
 import com.example.sideproject_board.domain.Role;
@@ -17,7 +17,7 @@ import java.util.Map;
 @Getter
 public class OAuthAttributes {
     private Map<String,Object> attributes;
-    private String nameAttributekey;
+    private String nameAttributeKey;
     private String loginId;
     private String nickname;
     private String email;
@@ -39,7 +39,7 @@ public class OAuthAttributes {
                .email((String) attributes.get("email"))
                .nickname((String) attributes.get("name"))
                .attributes(attributes)
-               .nameAttributekey(userNameAttributeName)
+               .nameAttributeKey(userNameAttributeName)
                .build();
     }
     public static OAuthAttributes ofNaver(String userNameAttributeName,
@@ -53,12 +53,12 @@ public class OAuthAttributes {
                 .email((String) attributes.get("email"))
                 .nickname((String) attributes.get("name"))
                 .attributes(attributes)
-                .nameAttributekey(userNameAttributeName)
+                .nameAttributeKey(userNameAttributeName)
                 .build();
     }
     public User toEntity(){
         return User.builder()
-                .loginId(loginId)
+                .loginId(email)
                 .email(email)
                 .nickname(nickname)
                 .role(Role.SOCIAL)

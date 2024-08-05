@@ -59,7 +59,6 @@ public class SessionLoginController {
             bindingResult.addError(new FieldError("joinRequest", "loginId", "ID가 존재합니다."));
         }
 
-
         // 비밀번호 = 비밀번호 체크 여부 확인
         if (!joinRequest.getPassword().equals(joinRequest.getPasswordCheck())) {
             bindingResult.addError(new FieldError("joinRequest", "passwordCheck", "비밀번호가 일치하지 않습니다."));
